@@ -82,13 +82,13 @@ public class HiddenLayer {
 
     public double[][] backward(double[][] X, double[][] Z, double[][] dY, double[][] Wprev, int minibatchSize, double learningRate) {
 
-        double[][] dZ = new double[minibatchSize][nOut];  // backpropagation error
+        double[][] dZ = new double[minibatchSize][nOut];  // back-propagation error
 
         double[][] grad_W = new double[nOut][nIn];
         double[] grad_b = new double[nOut];
 
         // train with SGD
-        // calculate backpropagation error to get gradient of W, b
+        // calculate back-propagation error to get gradient of W, b
         for (int n = 0; n < minibatchSize; n++) {
 
             for (int j = 0; j < nOut; j++) {
@@ -107,7 +107,7 @@ public class HiddenLayer {
             }
         }
 
-        // update params
+        // update parameters
         for (int j = 0; j < nOut; j++) {
             for(int i = 0; i < nIn; i++) {
                 W[j][i] -= learningRate * grad_W[j][i] / minibatchSize;
